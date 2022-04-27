@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>Microsoft Edge浏览器主页是360导航？</title>
-    <url>/zyy2022/zyy2022.github.io.git/2022/04/22/edge%E6%B5%8F%E8%A7%88%E5%99%A8%E5%BC%80%E5%A7%8B%E9%A1%B5%E9%9D%A2%E6%98%BE%E7%A4%BA360%E9%A1%B5%E9%9D%A2%EF%BC%9F/</url>
+    <url>/2022/04/22/edge%E6%B5%8F%E8%A7%88%E5%99%A8%E5%BC%80%E5%A7%8B%E9%A1%B5%E9%9D%A2%E6%98%BE%E7%A4%BA360%E9%A1%B5%E9%9D%A2%EF%BC%9F/</url>
     <content><![CDATA[<h1 id="关于Microsoft-Edge"><a href="#关于Microsoft-Edge" class="headerlink" title="关于Microsoft Edge"></a>关于Microsoft Edge</h1><p>Microsoft Edge是一个有独立内核的主流浏览器，是一个跨平台的浏览器，除了Windows外还支持在其他系统上操作，Mac、Linux，甚至手机端的安卓和iOS系统都能支持，只要登录Microsoft账号后，收藏夹，浏览记录都能同步。</p>
 <h1 id="打开Microsoft-Edge发现首页竟然是360导航？"><a href="#打开Microsoft-Edge发现首页竟然是360导航？" class="headerlink" title="打开Microsoft Edge发现首页竟然是360导航？"></a>打开Microsoft Edge发现首页竟然是360导航？</h1><p><img src="/img/Edge/startPage360.jpg"></p>
 <h1 id="分析原因"><a href="#分析原因" class="headerlink" title="分析原因"></a>分析原因</h1><h2 id="原因1：Microsoft-Edge快捷方式属性值被改"><a href="#原因1：Microsoft-Edge快捷方式属性值被改" class="headerlink" title="原因1：Microsoft Edge快捷方式属性值被改"></a>原因1：Microsoft Edge快捷方式属性值被改</h2><p>打开Microsoft Edge桌面快捷方式的属性会发现目标一栏被指向了360导航，为什么Edge会被悄悄加上这样的信息就不多说了。解决问题就好了。<br><img src="/img/Edge/360Attribute.jpg"></p>
