@@ -1,0 +1,428 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-cn" color-mode=light>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>hexo部署到github教程2022 - 野茫茫的个人博客</title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="google" content="notranslate" />
+  
+  <meta name="description" content="一、搭建博客需要的工具安装1. node.js下载No...">
+  <meta name="author" content="zyy">
+  <link rel="icon" href="/images/icons/favicon-16x16.png" type="image/png" sizes="16x16">
+  <link rel="icon" href="/images/icons/favicon-32x32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/images/icons/apple-touch-icon.png" sizes="180x180">
+  <meta rel="mask-icon" href="/images/icons/stun-logo.svg" color="#333333">
+  
+    <meta rel="msapplication-TileImage" content="/images/icons/favicon-144x144.png">
+    <meta rel="msapplication-TileColor" content="#000000">
+  
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+    
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1445822_r673sha78lq.css">
+
+  
+
+  
+    
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
+
+  
+
+  
+    
+      
+        
+        
+<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/xcode.min.css" name="highlight-style" mode="light">
+
+      
+        
+        
+<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/solarized-dark.min.css" name="highlight-style" mode="dark">
+
+      
+  
+
+  <script>
+    var CONFIG = window.CONFIG || {};
+    var ZHAOO = window.ZHAOO || {};
+    CONFIG = {
+      isHome: false,
+      fancybox: true,
+      pjax: false,
+      lazyload: {
+        enable: true,
+        only_post: 'false',
+        loading: '[object Object]'
+      },
+      donate: {
+        enable: true,
+        alipay: 'https://pic.izhaoo.com/alipay.jpg',
+        wechat: 'https://pic.izhaoo.com/wechat.jpg'
+      },
+      galleries: {
+        enable: true
+      },
+      fab: {
+        enable: true,
+        always_show: false
+      },
+      carrier: {
+        enable: true
+      },
+      daovoice: {
+        enable: false
+      },
+      preview: {
+        background: {
+          default: '',
+          api: ''
+        },
+        motto: {
+          default: '未完待续...',
+          typing: true,
+          api: '',
+          data_contents: '["data","content"]'
+        },
+      },
+      qrcode: {
+        enable: true,
+        type: 'url',
+        image: 'https://pic.izhaoo.com/weapp-code.jpg',
+      },
+      toc: {
+        enable: true
+      },
+      scrollbar: {
+        type: 'default'
+      },
+      notification: {
+        enable: false,
+        delay: 4500,
+        list: '',
+        page_white_list: '',
+        page_black_list: ''
+      },
+      search: {
+        enable: true,
+        path: '/search.xml'
+      }
+    }
+  </script>
+
+  
+
+  
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body class="lock-screen">
+  <div class="loading"></div>
+  
+    
+
+
+  <nav class="navbar">
+    <div class="left">
+      
+    </div>
+    <div class="center">hexo部署到github教程2022</div>
+    <div class="right"> 
+      
+        <i class="iconfont iconhome j-navbar-back-home"></i>
+      
+      
+        <i class="iconfont iconmoono" id="color-toggle" color-toggle="light"></i>
+      
+      
+        <i class="iconfont iconsearch j-navbar-search"></i>
+      
+      
+        <i class="iconfont iconqrcode j-navbar-qrcode"></i>
+      
+    </div>
+    
+      <div id="qrcode-navbar"></div>
+    
+  </nav>
+
+  
+  
+
+<nav class="menu">
+  <div class="menu-container">
+    <ul class="menu-content"><li class="menu-item">
+        <a href="/ " class="underline "> 首页</a>
+      </li><li class="menu-item">
+        <a href="/categories/ " class="underline "> 分类</a>
+      </li><li class="menu-item">
+        <a href="/tags/ " class="underline "> 标签</a>
+      </li><li class="menu-item">
+        <a href="/archives/ " class="underline "> 归档</a>
+      </li><li class="menu-item">
+        <a href="/about/ " class="underline "> 关于</a>
+      </li></ul>
+  </div>
+</nav>
+  <main id="main">
+  <div class="article-wrap">
+    <div class="row container">
+      <div class="col-xl-3"></div>
+      <div class="col-xl-6"><article class="article">
+  <div class="wrap">
+    <section class="head">
+  <img   class="lazyload" data-original="/images/theme/post-image.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
+  <div class="head-mask">
+    <h1 class="head-title">hexo部署到github教程2022</h1>
+    <div class="head-info">
+      <span class="post-info-item"><i class="iconfont iconcalendar"></i>四月 28, 2022</span>
+      
+      <span class="post-info-item"><i class="iconfont iconfont-size"></i>1957</span>
+    </div>
+  </div>
+</section>
+    <section class="main">
+      <section class="content">
+        <h1 id="一、搭建博客需要的工具安装"><a href="#一、搭建博客需要的工具安装" class="headerlink" title="一、搭建博客需要的工具安装"></a>一、搭建博客需要的工具安装</h1><h2 id="1-node-js下载Node-js-nodejs-org"><a href="#1-node-js下载Node-js-nodejs-org" class="headerlink" title="1. node.js下载Node.js (nodejs.org)"></a>1. node.js下载Node.js (nodejs.org)</h2><p>它让JavaScript成为于PHP、Python、Perl、Ruby等服务端语言平起平坐的脚本语言。</p>
+<h2 id="2-git下载Git-Downloading-Package-git-scm-com"><a href="#2-git下载Git-Downloading-Package-git-scm-com" class="headerlink" title="2. git下载Git - Downloading Package (git-scm.com)"></a>2. git下载Git - Downloading Package (git-scm.com)</h2><p>是一个开源而分布式版本控制系统，可以有效、高速地处理从小到非常大的项目管理。</p>
+<h2 id="检验安装是否成功"><a href="#检验安装是否成功" class="headerlink" title="检验安装是否成功"></a>检验安装是否成功</h2><p>win+R&gt;&gt;&gt;cmd&gt;&gt;node -v&gt;&gt;显示node版本<br>npm -v&gt;&gt;显示版本<br>git –version&gt;&gt;git version（注：有2个–，version为全称）</p>
+<h2 id="3-安装hexo"><a href="#3-安装hexo" class="headerlink" title="3. 安装hexo"></a>3. 安装hexo</h2><p>npm install hexo-cli -g&gt;&gt;+ hexo-cli@版本号</p>
+<h2 id="检查hexo是否成功"><a href="#检查hexo是否成功" class="headerlink" title="检查hexo是否成功"></a>检查hexo是否成功</h2><p>hexo-v&gt;&gt;显示版本号</p>
+<h1 id="二、搭建仓库"><a href="#二、搭建仓库" class="headerlink" title="二、搭建仓库"></a>二、搭建仓库</h1><h2 id="1-注册github账号"><a href="#1-注册github账号" class="headerlink" title="1. 注册github账号"></a>1. 注册github账号</h2><h2 id="2-进入github页面，新建repository仓库"><a href="#2-进入github页面，新建repository仓库" class="headerlink" title="2. 进入github页面，新建repository仓库"></a>2. 进入github页面，新建repository仓库</h2><ul>
+<li>将github的仓库作为hexo的服务器，存储具体的内容，其他人可以去访问。<br><img   class="lazyload" data-original="/img/deploy/newRep.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" ><br><img   class="lazyload" data-original="/img/deploy/newRepShow.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" ></li>
+<li>设置repository的name为username.github.io，打勾add readme file，create。</li>
+<li>每个人的账号不一样，从而实现每个人的个人博客链接不同。</li>
+<li><strong>记住github账号、邮箱、密码。</strong></li>
+</ul>
+<h2 id="3-关联：将github和本地进行绑定"><a href="#3-关联：将github和本地进行绑定" class="headerlink" title="3. 关联：将github和本地进行绑定"></a>3. 关联：将github和本地进行绑定</h2><h3 id="①-获取ssh："><a href="#①-获取ssh：" class="headerlink" title="① 获取ssh："></a>① 获取ssh：</h3><ul>
+<li>进入任何文件夹中，右键打开，git bash here。</li>
+<li>在窗口中输入ssh，查看是否安装ssh，一般在安装git时已经默认安装了ssh。</li>
+<li>git bash 窗口输入：ssh-keygen -t rsa -C “邮箱地址”&gt;&gt;<strong>敲4次回车</strong></li>
+<li>然后在c盘user文件中会生成一个。ssh文件夹，其中有id_rsa和id_rsa.pub两个文件，打开id_rsa.pub并复制其中的所有内容。</li>
+</ul>
+<h3 id="②-github和本地绑定"><a href="#②-github和本地绑定" class="headerlink" title="② github和本地绑定"></a>② github和本地绑定</h3><ul>
+<li>打开github，在设置中的SSH and GPG keys中new SSH key，粘贴id_rsa.pub中的内容。<br><img   class="lazyload" data-original="/img/deploy/sshStep1.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" ><br><img   class="lazyload" data-original="/img/deploy/sshStep2.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" ><br><img   class="lazyload" data-original="/img/deploy/sshStep3.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" ></li>
+</ul>
+<h3 id="③-检查ssh是否绑定成功"><a href="#③-检查ssh是否绑定成功" class="headerlink" title="③ 检查ssh是否绑定成功"></a>③ 检查ssh是否绑定成功</h3><p>在git bash中&gt;&gt;ssh -T <a href="mailto:&#103;&#x69;&#x74;&#x40;&#x67;&#x69;&#116;&#104;&#x75;&#x62;&#46;&#99;&#111;&#109;">&#103;&#x69;&#x74;&#x40;&#x67;&#x69;&#116;&#104;&#x75;&#x62;&#46;&#99;&#111;&#109;</a>&gt;&gt;敲一次回车&gt;&gt;输入yes&gt;&gt;出现warming没关系，出现you’ve successfully…<strong>即为成功</strong></p>
+<h1 id="三、本地生成博客内容"><a href="#三、本地生成博客内容" class="headerlink" title="三、本地生成博客内容"></a>三、本地生成博客内容</h1><ul>
+<li>在本地文件中新建空的文件夹blog，右键打开Git bash here</li>
+<li><strong>hexo init</strong>&gt;&gt;初始化hexo，INFO start blogging with hexo，在文件夹中会产生很多文件，是来自github上别人已经做好的，拷贝下来的</li>
+<li><strong>hexo s</strong>&gt;&gt; 启动本地服务器http:localhost:4000</li>
+</ul>
+<blockquote>
+<p>出现unable to access…为连接错误，再次重试即可，实在不行可以改为镜像源或者vpn</p>
+</blockquote>
+<h2 id="github更新后更改的重要地方："><a href="#github更新后更改的重要地方：" class="headerlink" title="github更新后更改的重要地方："></a>github更新后更改的重要地方：</h2><p><strong>这使得网上很多以前的教程不再适用。</strong></p>
+<ol>
+<li>本地文件上传到github不再使用密钥来验证，而是令牌。</li>
+<li>默认的分支由master改为main</li>
+</ol>
+<h2 id="更改配置文件"><a href="#更改配置文件" class="headerlink" title="更改配置文件"></a>更改配置文件</h2><p>打开_config.yml，更改deploy中的内容，注意有空格</p>
+<blockquote>
+<p>deploy:<br>type: git<br>repository: <a target="_blank" rel="noopener" href="https://github.com/">https://github.com/</a><username>&#x2F;<username>.github.io.git<br>branch: main</p>
+</blockquote>
+<h1 id="四、安装自动部署发布工具"><a href="#四、安装自动部署发布工具" class="headerlink" title="四、安装自动部署发布工具"></a>四、安装自动部署发布工具</h1><ol>
+<li>在blog文件中打开git bash here，输入&gt;&gt;npm install hexo-deployer-git -save</li>
+<li><strong>hexo g</strong>&gt;&gt;生成页面</li>
+<li><strong>hexo d</strong>&gt;&gt;上传，执行完成后本地文件会上传少github中。这一步需要验证账号密码，username输入github账户，密码改为令牌，令牌来自setting&gt;&gt;developer seeting&gt;personal access token。令牌复制一次后就会隐藏，需要自行保存。输错内容需要从头再来。<br><img   class="lazyload" data-original="/img/deploy/token.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" ></li>
+</ol>
+<h1 id="五、访问"><a href="#五、访问" class="headerlink" title="五、访问"></a>五、访问</h1><p>可以在repository&gt;&gt;setting&gt;&gt;pages&gt;&gt;source为main查看部署成功后的链接。<br><a href="https://zyy2022.github.io/">https://zyy2022.github.io/</a></p>
+<blockquote>
+<p>参考链接：<br><a target="_blank" rel="noopener" href="https://b23.tv/Mb1pCIe">2021最新版 保姆级Hexo+github搭建个人博客-哔哩哔哩</a><br><a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/">官方文档 | Hexo</a></p>
+</blockquote>
+
+      </section>
+      <section class="extra">
+        
+          <ul class="copyright">
+  
+    <li><strong>本文作者：</strong>zyy</li>
+    <li><strong>本文链接：</strong><a href="https://zyy2022.github.io/2022/04/28/hexo%E9%83%A8%E7%BD%B2%E5%88%B0github%E6%95%99%E7%A8%8B2022/index.html" title="https:&#x2F;&#x2F;zyy2022.github.io&#x2F;2022&#x2F;04&#x2F;28&#x2F;hexo%E9%83%A8%E7%BD%B2%E5%88%B0github%E6%95%99%E7%A8%8B2022&#x2F;index.html">https:&#x2F;&#x2F;zyy2022.github.io&#x2F;2022&#x2F;04&#x2F;28&#x2F;hexo%E9%83%A8%E7%BD%B2%E5%88%B0github%E6%95%99%E7%A8%8B2022&#x2F;index.html</a></li>
+    <li><strong>版权声明：</strong>本博客所有文章均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" title="BY-NC-SA" target="_blank" rel="noopener">BY-NC-SA</a> 许可协议，转载请注明出处！</li>
+  
+</ul>
+        
+        
+          <section class="donate">
+  <div id="qrcode-donate">
+    <img   class="lazyload" data-original="https://pic.izhaoo.com/alipay.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" >
+  </div>
+  <div class="icon">
+    <a href="javascript:;" id="alipay"><i class="iconfont iconalipay"></i></a>
+    <a href="javascript:;" id="wechat"><i class="iconfont iconwechat-fill"></i></a>
+  </div>
+</section>
+        
+        
+  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo%E9%83%A8%E7%BD%B2/" rel="tag">hexo部署</a></li></ul> 
+
+        
+  <nav class="nav">
+    <a></a>
+    <a href="/2022/04/22/edge%E6%B5%8F%E8%A7%88%E5%99%A8%E5%BC%80%E5%A7%8B%E9%A1%B5%E9%9D%A2%E6%98%BE%E7%A4%BA360%E9%A1%B5%E9%9D%A2%EF%BC%9F/">Microsoft Edge浏览器主页是360导航？<i class="iconfont iconright"></i></a>
+  </nav>
+
+      </section>
+      
+    </section>
+  </div>
+</article></div>
+      <div class="col-xl-3">
+        
+          
+  <aside class="toc-wrap">
+    <h3 class="toc-title">文章目录：</h3>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E9%9C%80%E8%A6%81%E7%9A%84%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85"><span class="toc-text">一、搭建博客需要的工具安装</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-node-js%E4%B8%8B%E8%BD%BDNode-js-nodejs-org"><span class="toc-text">1. node.js下载Node.js (nodejs.org)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-git%E4%B8%8B%E8%BD%BDGit-Downloading-Package-git-scm-com"><span class="toc-text">2. git下载Git - Downloading Package (git-scm.com)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A3%80%E9%AA%8C%E5%AE%89%E8%A3%85%E6%98%AF%E5%90%A6%E6%88%90%E5%8A%9F"><span class="toc-text">检验安装是否成功</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E5%AE%89%E8%A3%85hexo"><span class="toc-text">3. 安装hexo</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A3%80%E6%9F%A5hexo%E6%98%AF%E5%90%A6%E6%88%90%E5%8A%9F"><span class="toc-text">检查hexo是否成功</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E6%90%AD%E5%BB%BA%E4%BB%93%E5%BA%93"><span class="toc-text">二、搭建仓库</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E6%B3%A8%E5%86%8Cgithub%E8%B4%A6%E5%8F%B7"><span class="toc-text">1. 注册github账号</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E8%BF%9B%E5%85%A5github%E9%A1%B5%E9%9D%A2%EF%BC%8C%E6%96%B0%E5%BB%BArepository%E4%BB%93%E5%BA%93"><span class="toc-text">2. 进入github页面，新建repository仓库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E5%85%B3%E8%81%94%EF%BC%9A%E5%B0%86github%E5%92%8C%E6%9C%AC%E5%9C%B0%E8%BF%9B%E8%A1%8C%E7%BB%91%E5%AE%9A"><span class="toc-text">3. 关联：将github和本地进行绑定</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%91%A0-%E8%8E%B7%E5%8F%96ssh%EF%BC%9A"><span class="toc-text">① 获取ssh：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%91%A1-github%E5%92%8C%E6%9C%AC%E5%9C%B0%E7%BB%91%E5%AE%9A"><span class="toc-text">② github和本地绑定</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%91%A2-%E6%A3%80%E6%9F%A5ssh%E6%98%AF%E5%90%A6%E7%BB%91%E5%AE%9A%E6%88%90%E5%8A%9F"><span class="toc-text">③ 检查ssh是否绑定成功</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E6%9C%AC%E5%9C%B0%E7%94%9F%E6%88%90%E5%8D%9A%E5%AE%A2%E5%86%85%E5%AE%B9"><span class="toc-text">三、本地生成博客内容</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#github%E6%9B%B4%E6%96%B0%E5%90%8E%E6%9B%B4%E6%94%B9%E7%9A%84%E9%87%8D%E8%A6%81%E5%9C%B0%E6%96%B9%EF%BC%9A"><span class="toc-text">github更新后更改的重要地方：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9B%B4%E6%94%B9%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-text">更改配置文件</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E5%AE%89%E8%A3%85%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2%E5%8F%91%E5%B8%83%E5%B7%A5%E5%85%B7"><span class="toc-text">四、安装自动部署发布工具</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E8%AE%BF%E9%97%AE"><span class="toc-text">五、访问</span></a></li></ol>
+  </aside>
+
+        
+      </div>
+    </div>
+  </div>
+</main>
+  
+
+<footer class="footer">
+  <div class="footer-social"><a 
+        href="tencent://message/?Menu=yes&uin=894519210 "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#12B7F5'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconQQ "></i>
+      </a><a 
+        href="javascript:; "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#09BB07'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconwechat-fill "></i>
+      </a><a 
+        href="https://www.instagram.com/izhaoo/ "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#DA2E76'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconinstagram "></i>
+      </a><a 
+        href="https://github.com/zhaoo "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#9f7be1'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  icongithub-fill "></i>
+      </a><a 
+        href="mailto:izhaoo@163.com "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color=#FF3B00" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconmail"></i>
+      </a></div>
+  
+    <div class="footer-copyright"><p>Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Theme - <a target="_blank" href="https://github.com/izhaoo/hexo-theme-zhaoo">zhaoo</a></p></div>
+  
+</footer>
+  
+      <div class="fab fab-plus">
+    <i class="iconfont iconplus"></i>
+  </div>
+  
+  
+  <div class="fab fab-up">
+    <i class="iconfont iconcaret-up"></i>
+  </div>
+  
+  
+  
+    
+<script src="/js/color-mode.js"></script>
+
+  
+  
+    <div class="search">
+  <div class="search-container">
+    <div class="search-close">
+      <i class="iconfont iconbaseline-close-px"></i>
+    </div>
+    <div class="search-input-wrapper">
+      <i class="search-input-icon iconfont iconsearch"></i>
+      <input class="search-input" type="search" id="search-input" placeholder="Search..." autofocus autocomplete="off"
+        autocorrect="off" autocapitalize="off">
+    </div>
+    <div class="search-output" id="search-output"></div>
+  </div>
+</div>
+  
+</body>
+
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+
+
+
+  
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script>
+
+
+
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+
+
+
+
+
+
+  
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
+
+
+
+
+<script src="/js/utils.js"></script>
+<script src="/js/script.js"></script>
+
+
+
+
+
+
+
+  <script>
+    (function () {
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+      } else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>

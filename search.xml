@@ -21,4 +21,59 @@
         <tag>notes</tag>
       </tags>
   </entry>
+  <entry>
+    <title>hexo部署到github教程2022</title>
+    <url>/2022/04/28/hexo%E9%83%A8%E7%BD%B2%E5%88%B0github%E6%95%99%E7%A8%8B2022/</url>
+    <content><![CDATA[<h1 id="一、搭建博客需要的工具安装"><a href="#一、搭建博客需要的工具安装" class="headerlink" title="一、搭建博客需要的工具安装"></a>一、搭建博客需要的工具安装</h1><h2 id="1-node-js下载Node-js-nodejs-org"><a href="#1-node-js下载Node-js-nodejs-org" class="headerlink" title="1. node.js下载Node.js (nodejs.org)"></a>1. node.js下载Node.js (nodejs.org)</h2><p>它让JavaScript成为于PHP、Python、Perl、Ruby等服务端语言平起平坐的脚本语言。</p>
+<h2 id="2-git下载Git-Downloading-Package-git-scm-com"><a href="#2-git下载Git-Downloading-Package-git-scm-com" class="headerlink" title="2. git下载Git - Downloading Package (git-scm.com)"></a>2. git下载Git - Downloading Package (git-scm.com)</h2><p>是一个开源而分布式版本控制系统，可以有效、高速地处理从小到非常大的项目管理。</p>
+<h2 id="检验安装是否成功"><a href="#检验安装是否成功" class="headerlink" title="检验安装是否成功"></a>检验安装是否成功</h2><p>win+R&gt;&gt;&gt;cmd&gt;&gt;node -v&gt;&gt;显示node版本<br>npm -v&gt;&gt;显示版本<br>git –version&gt;&gt;git version（注：有2个–，version为全称）</p>
+<h2 id="3-安装hexo"><a href="#3-安装hexo" class="headerlink" title="3. 安装hexo"></a>3. 安装hexo</h2><p>npm install hexo-cli -g&gt;&gt;+ hexo-cli@版本号</p>
+<h2 id="检查hexo是否成功"><a href="#检查hexo是否成功" class="headerlink" title="检查hexo是否成功"></a>检查hexo是否成功</h2><p>hexo-v&gt;&gt;显示版本号</p>
+<h1 id="二、搭建仓库"><a href="#二、搭建仓库" class="headerlink" title="二、搭建仓库"></a>二、搭建仓库</h1><h2 id="1-注册github账号"><a href="#1-注册github账号" class="headerlink" title="1. 注册github账号"></a>1. 注册github账号</h2><h2 id="2-进入github页面，新建repository仓库"><a href="#2-进入github页面，新建repository仓库" class="headerlink" title="2. 进入github页面，新建repository仓库"></a>2. 进入github页面，新建repository仓库</h2><ul>
+<li>将github的仓库作为hexo的服务器，存储具体的内容，其他人可以去访问。<br><img src="/img/deploy/newRep.png"><br><img src="/img/deploy/newRepShow.png"></li>
+<li>设置repository的name为username.github.io，打勾add readme file，create。</li>
+<li>每个人的账号不一样，从而实现每个人的个人博客链接不同。</li>
+<li><strong>记住github账号、邮箱、密码。</strong></li>
+</ul>
+<h2 id="3-关联：将github和本地进行绑定"><a href="#3-关联：将github和本地进行绑定" class="headerlink" title="3. 关联：将github和本地进行绑定"></a>3. 关联：将github和本地进行绑定</h2><h3 id="①-获取ssh："><a href="#①-获取ssh：" class="headerlink" title="① 获取ssh："></a>① 获取ssh：</h3><ul>
+<li>进入任何文件夹中，右键打开，git bash here。</li>
+<li>在窗口中输入ssh，查看是否安装ssh，一般在安装git时已经默认安装了ssh。</li>
+<li>git bash 窗口输入：ssh-keygen -t rsa -C “邮箱地址”&gt;&gt;<strong>敲4次回车</strong></li>
+<li>然后在c盘user文件中会生成一个。ssh文件夹，其中有id_rsa和id_rsa.pub两个文件，打开id_rsa.pub并复制其中的所有内容。</li>
+</ul>
+<h3 id="②-github和本地绑定"><a href="#②-github和本地绑定" class="headerlink" title="② github和本地绑定"></a>② github和本地绑定</h3><ul>
+<li>打开github，在设置中的SSH and GPG keys中new SSH key，粘贴id_rsa.pub中的内容。<br><img src="/img/deploy/sshStep1.png"><br><img src="/img/deploy/sshStep2.png"><br><img src="/img/deploy/sshStep3.png"></li>
+</ul>
+<h3 id="③-检查ssh是否绑定成功"><a href="#③-检查ssh是否绑定成功" class="headerlink" title="③ 检查ssh是否绑定成功"></a>③ 检查ssh是否绑定成功</h3><p>在git bash中&gt;&gt;ssh -T <a href="mailto:&#103;&#x69;&#x74;&#x40;&#x67;&#x69;&#116;&#104;&#x75;&#x62;&#46;&#99;&#111;&#109;">&#103;&#x69;&#x74;&#x40;&#x67;&#x69;&#116;&#104;&#x75;&#x62;&#46;&#99;&#111;&#109;</a>&gt;&gt;敲一次回车&gt;&gt;输入yes&gt;&gt;出现warming没关系，出现you’ve successfully…<strong>即为成功</strong></p>
+<h1 id="三、本地生成博客内容"><a href="#三、本地生成博客内容" class="headerlink" title="三、本地生成博客内容"></a>三、本地生成博客内容</h1><ul>
+<li>在本地文件中新建空的文件夹blog，右键打开Git bash here</li>
+<li><strong>hexo init</strong>&gt;&gt;初始化hexo，INFO start blogging with hexo，在文件夹中会产生很多文件，是来自github上别人已经做好的，拷贝下来的</li>
+<li><strong>hexo s</strong>&gt;&gt; 启动本地服务器http:localhost:4000</li>
+</ul>
+<blockquote>
+<p>出现unable to access…为连接错误，再次重试即可，实在不行可以改为镜像源或者vpn</p>
+</blockquote>
+<h2 id="github更新后更改的重要地方："><a href="#github更新后更改的重要地方：" class="headerlink" title="github更新后更改的重要地方："></a>github更新后更改的重要地方：</h2><p><strong>这使得网上很多以前的教程不再适用。</strong></p>
+<ol>
+<li>本地文件上传到github不再使用密钥来验证，而是令牌。</li>
+<li>默认的分支由master改为main</li>
+</ol>
+<h2 id="更改配置文件"><a href="#更改配置文件" class="headerlink" title="更改配置文件"></a>更改配置文件</h2><p>打开_config.yml，更改deploy中的内容，注意有空格</p>
+<blockquote>
+<p>deploy:<br>type: git<br>repository: <a href="https://github.com/">https://github.com/</a><username>&#x2F;<username>.github.io.git<br>branch: main</p>
+</blockquote>
+<h1 id="四、安装自动部署发布工具"><a href="#四、安装自动部署发布工具" class="headerlink" title="四、安装自动部署发布工具"></a>四、安装自动部署发布工具</h1><ol>
+<li>在blog文件中打开git bash here，输入&gt;&gt;npm install hexo-deployer-git -save</li>
+<li><strong>hexo g</strong>&gt;&gt;生成页面</li>
+<li><strong>hexo d</strong>&gt;&gt;上传，执行完成后本地文件会上传少github中。这一步需要验证账号密码，username输入github账户，密码改为令牌，令牌来自setting&gt;&gt;developer seeting&gt;personal access token。令牌复制一次后就会隐藏，需要自行保存。输错内容需要从头再来。<br><img src="/img/deploy/token.png"></li>
+</ol>
+<h1 id="五、访问"><a href="#五、访问" class="headerlink" title="五、访问"></a>五、访问</h1><p>可以在repository&gt;&gt;setting&gt;&gt;pages&gt;&gt;source为main查看部署成功后的链接。<br><a href="https://zyy2022.github.io/">https://zyy2022.github.io/</a></p>
+<blockquote>
+<p>参考链接：<br><a href="https://b23.tv/Mb1pCIe">2021最新版 保姆级Hexo+github搭建个人博客-哔哩哔哩</a><br><a href="https://hexo.io/zh-cn/docs/">官方文档 | Hexo</a></p>
+</blockquote>
+]]></content>
+      <tags>
+        <tag>hexo部署</tag>
+      </tags>
+  </entry>
 </search>
