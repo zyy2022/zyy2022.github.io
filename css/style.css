@@ -936,24 +936,23 @@ body input {
 }
 .menu {
   position: absolute;
-  width: 500px;
-  height: 90px;
+  width: 100%;
+  height: 55px;
   top: 0;
-  left: 0;
-  margin-top: 30px;
+  right: 40px;
   z-index: 103;
 }
 .menu .menu-container {
   width: 100%;
-  height: 90px;
-  display: block;
+  height: 55px;
   justify-content: center;
   align-items: top;
 }
 .menu .menu-container .menu-content {
-  text-align: right;
+  width: 100%;
   padding: 0;
-  display: block;
+  display: flex;
+  justify-content: flex-end;
 }
 @media (min-width: 576px) {
   .menu .menu-container .menu-content {
@@ -967,14 +966,16 @@ body input {
   }
 }
 .menu .menu-container .menu-content .menu-item {
-  font-size: 2em;
+  font-size: 1.5em;
+  line-height: 55px;
   list-style: none;
-  margin: 5px 10px;
+  margin: 5px 5px;
 }
 .menu .menu-container .menu-content .menu-item a {
   padding: 3px 8px;
   border-radius: 4px;
   background-clip: border-box;
+  background-color: #eee;
 }
 .menu .menu-container .menu-content .menu-item a.active {
   color: #fff !important;
@@ -1024,6 +1025,8 @@ body input {
 .navbar .right {
   justify-content: flex-end;
   padding-right: 15px;
+  margin-top: 10px;
+  font-size: 1.5em;
 }
 .navbar .right .iconfont:not(:last-child) {
   margin-right: 10px;
@@ -1154,6 +1157,7 @@ body input {
   animation-duration: 20s;
 }
 .preview .preview-motto-wrapper {
+  display: none;
   position: absolute;
   top: 42vh;
   left: 0;
