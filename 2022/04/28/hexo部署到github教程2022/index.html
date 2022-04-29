@@ -138,22 +138,22 @@
     </div>
     <div class="center">hexo部署到github教程2022</div>
     <div class="right"> 
-      
+      <!-- 
         <i class="iconfont iconhome j-navbar-back-home"></i>
-      
-      
+       -->
+      <!-- 
         <i class="iconfont iconmoono" id="color-toggle" color-toggle="light"></i>
-      
+       -->
       
         <i class="iconfont iconsearch j-navbar-search"></i>
       
-      
+      <!-- 
         <i class="iconfont iconqrcode j-navbar-qrcode"></i>
-      
+       -->
     </div>
-    
+    <!-- 
       <div id="qrcode-navbar"></div>
-    
+     -->
   </nav>
 
   
@@ -171,7 +171,9 @@
         <a href="/archives/ " class="underline "> 归档</a>
       </li><li class="menu-item">
         <a href="/about/ " class="underline "> 关于</a>
-      </li></ul>
+      </li>
+      <i class="iconfont iconsearch j-navbar-search"></i>
+    </ul>    
   </div>
 </nav>
   <main id="main">
@@ -187,14 +189,14 @@
     <div class="head-info">
       <span class="post-info-item"><i class="iconfont iconcalendar"></i>四月 28, 2022</span>
       
-      <span class="post-info-item"><i class="iconfont iconfont-size"></i>1965</span>
+      <span class="post-info-item"><i class="iconfont iconfont-size"></i>1968</span>
     </div>
   </div>
 </section>
     <section class="main">
       <section class="content">
         <h1 id="一、搭建博客需要的工具安装"><a href="#一、搭建博客需要的工具安装" class="headerlink" title="一、搭建博客需要的工具安装"></a>一、搭建博客需要的工具安装</h1><h2 id="1-node-js下载"><a href="#1-node-js下载" class="headerlink" title="1. node.js下载"></a>1. node.js下载</h2><p>点击下载：<a target="_blank" rel="noopener" href="https://nodejs.org/en/">Node.js (nodejs.org)</a><br>它让JavaScript成为于PHP、Python、Perl、Ruby等服务端语言平起平坐的脚本语言。</p>
-<h2 id="2-git下载"><a href="#2-git下载" class="headerlink" title="2. git下载"></a>2. git下载</h2><p>点击下载：<a target="_blank" rel="noopener" href="https://git-scm.com/download/win">Git - Downloading Package (git-scm.com)</a><br>是一个开源而分布式版本控制系统，可以有效、高速地处理从小到非常大的项目管理。</p>
+<h2 id="2-git下载"><a href="#2-git下载" class="headerlink" title="2. git下载"></a>2. git下载</h2><p>点击下载：<a target="_blank" rel="noopener" href="https://git-scm.com/download/win">Git - Downloading Package (git-scm.com)</a><br>是一个开源的分布式版本控制系统，可以有效、高速地处理从小到非常大的项目管理。</p>
 <h2 id="检验安装是否成功"><a href="#检验安装是否成功" class="headerlink" title="检验安装是否成功"></a>检验安装是否成功</h2><p>win+R&gt;&gt;&gt;cmd&gt;&gt;node -v&gt;&gt;显示node版本<br>npm -v&gt;&gt;显示版本<br>git –version&gt;&gt;git version（注：有2个–，version为全称）</p>
 <h2 id="3-安装hexo"><a href="#3-安装hexo" class="headerlink" title="3. 安装hexo"></a>3. 安装hexo</h2><p>npm install hexo-cli -g&gt;&gt;+ hexo-cli@版本号</p>
 <h2 id="检查hexo是否成功"><a href="#检查hexo是否成功" class="headerlink" title="检查hexo是否成功"></a>检查hexo是否成功</h2><p>hexo-v&gt;&gt;显示版本号</p>
@@ -213,7 +215,7 @@
 <h3 id="②-github和本地绑定"><a href="#②-github和本地绑定" class="headerlink" title="② github和本地绑定"></a>② github和本地绑定</h3><ul>
 <li>打开github，在设置中的SSH and GPG keys中new SSH key，粘贴id_rsa.pub中的内容。<br><img   class="lazyload" data-original="/img/deploy/sshStep1.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" ><br><img   class="lazyload" data-original="/img/deploy/sshStep2.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" ><br><img   class="lazyload" data-original="/img/deploy/sshStep3.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" ></li>
 </ul>
-<h3 id="③-检查ssh是否绑定成功"><a href="#③-检查ssh是否绑定成功" class="headerlink" title="③ 检查ssh是否绑定成功"></a>③ 检查ssh是否绑定成功</h3><p>在git bash中&gt;&gt;ssh -T <a href="mailto:&#103;&#x69;&#116;&#64;&#103;&#x69;&#x74;&#x68;&#x75;&#98;&#46;&#99;&#111;&#x6d;">&#103;&#x69;&#116;&#64;&#103;&#x69;&#x74;&#x68;&#x75;&#98;&#46;&#99;&#111;&#x6d;</a>&gt;&gt;敲一次回车&gt;&gt;输入yes&gt;&gt;出现warming没关系，出现you’ve successfully…<strong>即为成功</strong></p>
+<h3 id="③-检查ssh是否绑定成功"><a href="#③-检查ssh是否绑定成功" class="headerlink" title="③ 检查ssh是否绑定成功"></a>③ 检查ssh是否绑定成功</h3><p>在git bash中&gt;&gt;ssh -T <a href="mailto:&#x67;&#x69;&#116;&#x40;&#x67;&#x69;&#116;&#104;&#x75;&#x62;&#46;&#x63;&#111;&#x6d;">&#x67;&#x69;&#116;&#x40;&#x67;&#x69;&#116;&#104;&#x75;&#x62;&#46;&#x63;&#111;&#x6d;</a>&gt;&gt;敲一次回车&gt;&gt;输入yes&gt;&gt;出现warming没关系，出现you’ve successfully…<strong>即为成功</strong></p>
 <h1 id="三、本地生成博客内容"><a href="#三、本地生成博客内容" class="headerlink" title="三、本地生成博客内容"></a>三、本地生成博客内容</h1><ul>
 <li>在本地文件中新建空的文件夹blog，右键打开Git bash here</li>
 <li><strong>hexo init</strong>&gt;&gt;初始化hexo，INFO start blogging with hexo，在文件夹中会产生很多文件，是来自github上别人已经做好的，拷贝下来的</li>
