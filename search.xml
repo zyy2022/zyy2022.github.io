@@ -44,7 +44,7 @@
 <h3 id="②-github和本地绑定"><a href="#②-github和本地绑定" class="headerlink" title="② github和本地绑定"></a>② github和本地绑定</h3><ul>
 <li>打开github，在设置中的SSH and GPG keys中new SSH key，粘贴id_rsa.pub中的内容。<br><img src="/img/deploy/sshStep1.png"><br><img src="/img/deploy/sshStep2.png"><br><img src="/img/deploy/sshStep3.png"></li>
 </ul>
-<h3 id="③-检查ssh是否绑定成功"><a href="#③-检查ssh是否绑定成功" class="headerlink" title="③ 检查ssh是否绑定成功"></a>③ 检查ssh是否绑定成功</h3><p>在git bash中&gt;&gt;ssh -T <a href="mailto:&#x67;&#105;&#x74;&#64;&#x67;&#x69;&#x74;&#104;&#x75;&#98;&#46;&#x63;&#x6f;&#109;">&#x67;&#105;&#x74;&#64;&#x67;&#x69;&#x74;&#104;&#x75;&#98;&#46;&#x63;&#x6f;&#109;</a>&gt;&gt;敲一次回车&gt;&gt;输入yes&gt;&gt;出现warming没关系，出现you’ve successfully…<strong>即为成功</strong></p>
+<h3 id="③-检查ssh是否绑定成功"><a href="#③-检查ssh是否绑定成功" class="headerlink" title="③ 检查ssh是否绑定成功"></a>③ 检查ssh是否绑定成功</h3><p>在git bash中&gt;&gt;ssh -T <a href="mailto:&#103;&#105;&#x74;&#x40;&#103;&#105;&#x74;&#x68;&#117;&#98;&#46;&#99;&#x6f;&#109;">&#103;&#105;&#x74;&#x40;&#103;&#105;&#x74;&#x68;&#117;&#98;&#46;&#99;&#x6f;&#109;</a>&gt;&gt;敲一次回车&gt;&gt;输入yes&gt;&gt;出现warming没关系，出现you’ve successfully…<strong>即为成功</strong></p>
 <h1 id="三、本地生成博客内容"><a href="#三、本地生成博客内容" class="headerlink" title="三、本地生成博客内容"></a>三、本地生成博客内容</h1><ul>
 <li>在本地文件中新建空的文件夹blog，右键打开Git bash here</li>
 <li><strong>hexo init</strong>&gt;&gt;初始化hexo，INFO start blogging with hexo，在文件夹中会产生很多文件，是来自github上别人已经做好的，拷贝下来的</li>
@@ -77,6 +77,145 @@
       </categories>
       <tags>
         <tag>hexo部署</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SQL基本知识点</title>
+    <url>/2022/04/29/SQL%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AF%86%E7%82%B9/</url>
+    <content><![CDATA[<h1 id="例子数据："><a href="#例子数据：" class="headerlink" title="例子数据："></a>例子数据：</h1><p><img src="/img/SQL/empTable.png"><br><img src="/img/SQL/depTable.png"></p>
+<h1 id="一、基本语句"><a href="#一、基本语句" class="headerlink" title="一、基本语句"></a>一、基本语句</h1><ol>
+<li><p>查询工资sal大于300，小于1000的员工ename；</p>
+<blockquote>
+<p>select ename, sal from emp <strong>where sal &gt;&#x3D; 300 and sal &lt;&#x3D; 1000</strong>;<br>select ename, sal from emp <strong>where sal between 300 and 1000</strong>;</p>
+</blockquote>
+</li>
+<li><p>找出哪些人没有津贴comm；</p>
+<blockquote>
+<p>select ename from emp where comm <strong>is null or comm&#x3D;0</strong>;</p>
+</blockquote>
+</li>
+<li><p>找出job字段为manager和salesman的员工；两种方法</p>
+<blockquote>
+<p><u>方法1</u>：select ename, job from emp<br><strong>where job &#x3D;’manager’ or job &#x3D;’salesman’</strong>;<br><u>方法2</u>：select ename,job from emp<br><strong>where job in(‘manager’,’salesman’)</strong>;</p>
+</blockquote>
+</li>
+<li><p>找出薪资sal大于1000的并且部门编号deptno为20或者30的员工；</p>
+<blockquote>
+<p>select ename, sal, deptno from emp<br>where sal &gt; 1000 and (deptno &#x3D;20 or deptno &#x3D; 30);</p>
+</blockquote>
+</li>
+<li><p>找出名字中含有o的；</p>
+<blockquote>
+<p>select ename from emp where ename like ‘%o%’;</p>
+</blockquote>
+</li>
+<li><p>找出第二个字母为A的；</p>
+<blockquote>
+<p>selcet ename from emp where name like ‘_A%’;</p>
+</blockquote>
+</li>
+<li><p>按工资升序，找出员工和薪资sal</p>
+<blockquote>
+<p>selcet ename, sal from emp <strong>order by sal asc</strong>;<br>(order by默认为升序)</p>
+</blockquote>
+</li>
+<li><p>按工资降序，工资相同按名字升序排列；</p>
+<blockquote>
+<p>selcet ename, sal from emp <strong>order by sal desc, ename asc</strong>;<br>(根据两个字段排序直接用逗号隔开)</p>
+</blockquote>
+</li>
+<li><p>找出工作岗位job为salesman并且要求工资降序排列；</p>
+<blockquote>
+<p>select ename, job, sal from emp where job &#x3D; ‘saleaman’ order by sal desc;</p>
+</blockquote>
+</li>
+<li><p>计算每个员工的年薪；(年薪&#x3D;(sal+comm)*12)</p>
+<blockquote>
+<p>selcet ename, (isnull(comm,0)+sal)*12 from emp;<br>(null于任何数据进行运算均会得到null，所以需要判断comm是否为null，如果是null则赋值为0)</p>
+</blockquote>
+</li>
+<li><p>找出工资高于平均工资的员工；</p>
+<blockquote>
+<p>select ename, sal from emp where sal &gt; (select avg(sal) from emp);<br><font color = "red"><em><strong>为什么where 不能和聚合函数连用？？？？</strong></em></font></p>
+</blockquote>
+</li>
+<li><p>找出每个工作岗位的最高薪资；</p>
+<blockquote>
+<p>select job, max(sal) from emp group by job;</p>
+</blockquote>
+</li>
+<li><p>找出每个部门不同岗位最高薪资；</p>
+<blockquote>
+<p>selcet job, deptno, max(sal) from emp group by depno, jpb;<br>(对两个字段进行分组，直接用逗号)</p>
+</blockquote>
+</li>
+<li><p>找出每个部门最高薪资要求薪资&gt;2500；</p>
+<blockquote>
+<p>select deptno, max(sal) from emp where sal &gt; 2500 group by deptno;</p>
+</blockquote>
+</li>
+<li><p>找出每个部门平均薪资，要求显示薪资&gt;2000;</p>
+<blockquote>
+<p>select deptno, avg(sal) from emp group by deptno having avg(sal) &gt;2000;<br><font color = "red"><em><strong>group by having，而不是group by where</strong></em></font></p>
+</blockquote>
+</li>
+<li><p>找出工作job类型</p>
+<blockquote>
+<p>select distinct job from emp;</p>
+</blockquote>
+</li>
+<li><p>统计岗位数量</p>
+<blockquote>
+<p>select count(distinct job) from emp;</p>
+</blockquote>
+</li>
+</ol>
+<h1 id="二、连接查询"><a href="#二、连接查询" class="headerlink" title="二、连接查询"></a>二、连接查询</h1><ol>
+<li><p>找出每一个员工的部门名称，要求显示员工名ename和部门名dname（EMP，DEPT）；<br>select e.ename, d.dname from emp e<br>join dept d on e.deptno &#x3D; d.deptno;</p>
+</li>
+<li><p>每个员工工资等级salgrade，显示员工名、薪资、等级grade；losal最低工资hisal最高；</p>
+<blockquote>
+<p>select ename, sal, grade, salgrade from emp e<br>join grade g on e.sal&gt;hisal and e.sal&lt;hisal</p>
+</blockquote>
+</li>
+<li><p>找出每个员工的上级领导，显示员工名和对应领导名；</p>
+</li>
+<li><p>内连接和外连接的区别；</p>
+</li>
+<li><p>找出哪个部门没有员工；</p>
+</li>
+<li><p>找出每个员工的部门名称及工资等级；</p>
+</li>
+<li><p>找出每个员工的部门名、工资等级、上级领导；</p>
+</li>
+</ol>
+<h1 id="三、子查询"><a href="#三、子查询" class="headerlink" title="三、子查询"></a>三、子查询</h1><ol>
+<li>找出高出平均薪资的员工信息；</li>
+<li>找出每个部门平均薪水的薪资等级；</li>
+<li>找出每个部门平均的薪水等级；</li>
+<li>找出每个员工所在部门名称，显示员工名和部门名；</li>
+<li>Union</li>
+</ol>
+<h1 id="四、limit"><a href="#四、limit" class="headerlink" title="四、limit"></a>四、limit</h1><ol>
+<li>取出工资前5名员工</li>
+<li>找出工资排名第4-9的员工</li>
+</ol>
+<h1 id="五、DML"><a href="#五、DML" class="headerlink" title="五、DML"></a>五、DML</h1><ol>
+<li>表的创建；</li>
+<li>向表中插入数据；</li>
+<li>一次插入多行数据；</li>
+<li>表的复制；</li>
+<li>将查询结果插入到另一张表中；</li>
+<li>修改表中数据，将部门10loc修改为shnghai，部门名称dname为res；</li>
+<li>删除数据</li>
+</ol>
+<p><strong>注：</strong><br><strong>1. 关于单引号和双引号</strong><br>在标准 SQL 中，字符串使用的是单引号。<br>如果字符串本身也包括单引号，则使用两个单引号（注意，不是双引号，字符串中的双引号不需要另外转义）。<br>但在其它的数据库中可能存在对 SQL 的扩展，比如在 MySQL 中允许使用单引号和双引号两种。<br><strong>2. 关于大小写</strong><br>在Windows中sql大小写不敏感，但是对于某字段的值是大小写敏感的。</p>
+]]></content>
+      <categories>
+        <category>SQL</category>
+      </categories>
+      <tags>
+        <tag>SQL</tag>
       </tags>
   </entry>
 </search>
