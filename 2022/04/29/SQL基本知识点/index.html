@@ -190,7 +190,7 @@
     <div class="head-info">
       <span class="post-info-item"><i class="iconfont iconcalendar"></i>四月 29, 2022</span>
       
-      <span class="post-info-item"><i class="iconfont iconfont-size"></i>2480</span>
+      <span class="post-info-item"><i class="iconfont iconfont-size"></i>4265</span>
     </div>
     <div class="img-info">
       <span class="img-info-title">杭州路边的月季花儿</span>
@@ -238,7 +238,7 @@
 </li>
 <li><p>按工资降序，工资相同按名字升序排列；</p>
 <blockquote>
-<p>selcet ename, sal from emp <strong>order by sal desc, ename asc</strong>;<br>(根据两个字段排序直接用逗号隔开)</p>
+<p>selcet ename, sal from emp <strong>order by sal desc, ename asc</strong>;<br>(根据两个字段排序直接用逗号隔开，考前的作用大)</p>
 </blockquote>
 </li>
 <li><p>找出工作岗位job为salesman并且要求工资降序排列；</p>
@@ -253,7 +253,7 @@
 </li>
 <li><p>找出工资高于平均工资的员工；</p>
 <blockquote>
-<p>select ename, sal from emp where sal &gt; (select avg(sal) from emp);<br><font color = "red"><em><strong>为什么where 不能和聚合函数连用？？？？</strong></em></font></p>
+<p>select ename, sal from emp where sal &gt; (select avg(sal) from emp);<br>错误：select ename, sal from emp where sal &gt; avg(sal);分组函数是在where之后执行而，没有分组怎么用分组函数</p>
 </blockquote>
 </li>
 <li><p>找出每个工作岗位的最高薪资；</p>
@@ -273,9 +273,12 @@
 </li>
 <li><p>找出每个部门平均薪资，要求显示薪资&gt;2000;</p>
 <blockquote>
-<p>select deptno, avg(sal) from emp group by deptno having avg(sal) &gt;2000;<br><font color = "red"><em><strong>group by having，而不是group by where</strong></em></font></p>
+<p>select deptno, avg(sal) from emp group by deptno having avg(sal) &gt;2000;</p>
 </blockquote>
 </li>
+</ol>
+<p><strong>group by 和 haxing：</strong>group by是按照某个字段进行分组，having对分组后数据再次过滤。</p>
+<ol start="16">
 <li><p>找出工作job类型</p>
 <blockquote>
 <p>select distinct job from emp;</p>
@@ -283,48 +286,124 @@
 </li>
 <li><p>统计岗位数量</p>
 <blockquote>
-<p>select count(distinct job) from emp;</p>
+<p>select count(distinct job) from emp;<br>count(*)为总条数，和字段无关；count(具体字段)统计的是不为空的条数。</p>
 </blockquote>
+</li>
+<li><p>执行顺序<br>select (no.5) from (no.1) where (no.2) group by (no.3) having (no.4) order by (no.6) limit (no.7)</p>
 </li>
 </ol>
 <h1 id="二、连接查询"><a href="#二、连接查询" class="headerlink" title="二、连接查询"></a>二、连接查询</h1><ol>
-<li><p>找出每一个员工的部门名称，要求显示员工名ename和部门名dname（EMP，DEPT）；<br>select e.ename, d.dname from emp e<br>join dept d on e.deptno &#x3D; d.deptno;</p>
+<li><p>找出每一个员工的部门名称，要求显示员工名ename和部门名dname（EMP，DEPT）；</p>
+<blockquote>
+<p>select e.ename, d.dname from emp e<br>join dept d on e.deptno &#x3D; d.deptno;</p>
+</blockquote>
 </li>
 <li><p>每个员工工资等级salgrade，显示员工名、薪资、等级grade；losal最低工资hisal最高；</p>
 <blockquote>
-<p>select ename, sal, grade, salgrade from emp e<br>join grade g on e.sal&gt;hisal and e.sal&lt;hisal</p>
+<p> select ename, sal, grade, salgrade from emp e<br>join grade g on e.sal&gt;hisal and e.sal&lt;hisal</p>
 </blockquote>
 </li>
 <li><p>找出每个员工的上级领导，显示员工名和对应领导名；</p>
+<blockquote>
+<p>select e1.ename as ‘员工’, e2.ename as ‘领导’ from emp e1<br>left join emp e2 on e1.mgr &#x3D; e2.empno;<br>注意：president没有上级领导</p>
+</blockquote>
 </li>
 <li><p>内连接和外连接的区别；</p>
+<blockquote>
+<p>内连接只会显示能连接上的部分，外连接会显示主表的所有内容，即使副表没有相应连接的部分。</p>
+</blockquote>
 </li>
 <li><p>找出哪个部门没有员工；</p>
+<blockquote>
+<p>select d.* from dept d left join emp e on d.deptno &#x3D; e.deptno where e.ename is null.</p>
+</blockquote>
 </li>
 <li><p>找出每个员工的部门名称及工资等级；</p>
+<blockquote>
+<p>select e ename, d dname, salgrade from emp e<br>left join dept d on e.deptno &#x3D; d.deptno<br>join salgrades s on e.sal between s.losal and s.hisal;</p>
+</blockquote>
 </li>
 <li><p>找出每个员工的部门名、工资等级、上级领导；</p>
+<blockquote>
+<p>select e.ename as ‘员工’, d.dname, s.salgrade, e2.ename as ‘领导’  from emp e<br>left join dept d on e.deptno &#x3D; d.deptno<br>join salgrades s on e.sal between s.losal and s.hisal<br>left join emp e2 on e.mgr &#x3D; e2.empno;</p>
+</blockquote>
 </li>
 </ol>
 <h1 id="三、子查询"><a href="#三、子查询" class="headerlink" title="三、子查询"></a>三、子查询</h1><ol>
-<li>找出高出平均薪资的员工信息；</li>
-<li>找出每个部门平均薪水的薪资等级；</li>
-<li>找出每个部门平均的薪水等级；</li>
-<li>找出每个员工所在部门名称，显示员工名和部门名；</li>
-<li>Union</li>
+<li><p>找出高出平均薪资的员工信息；</p>
+<blockquote>
+<p>select * from emp where sal &gt; (select avg(sal) from emp);</p>
+</blockquote>
+</li>
+<li><p>找出每个部门平均薪水的薪资等级；</p>
+<blockquote>
+<p>select t.*, s.grade from (select deptno, avg(sal) as ‘avgsal’ from emp group by deptno) t join salgrade s on t.avgsal between s.losal and s.hisal;</p>
+</blockquote>
+</li>
+<li><p>找出每个部门平均的薪水等级；</p>
+<blockquote>
+<p>select e.deptno, avg(s.grade) from emp e join salgrade s on e.sal between s.losal and hisal group by deptno;</p>
+</blockquote>
+</li>
+<li><p>找出每个员工所在部门名称，显示员工名和部门名；</p>
+<blockquote>
+<p>select e.ename, d.dname from emp e join dept d on e.deptno &#x3D; d.deptno;</p>
+</blockquote>
+</li>
+<li><p>Union</p>
+<blockquote>
+<p>连接两个查询结果，列数要想用</p>
+</blockquote>
+</li>
 </ol>
 <h1 id="四、limit"><a href="#四、limit" class="headerlink" title="四、limit"></a>四、limit</h1><ol>
-<li>取出工资前5名员工</li>
-<li>找出工资排名第4-9的员工</li>
+<li><p>取出工资前5名员工</p>
+<blockquote>
+<p>select ename, sal from emp order by sal desc limit 0,5;</p>
+</blockquote>
+</li>
+<li><p>找出工资排名第4-9的员工</p>
+<blockquote>
+<p>select ename, sal from emp order by sal desc limit 3,6;</p>
+</blockquote>
+</li>
 </ol>
 <h1 id="五、DML"><a href="#五、DML" class="headerlink" title="五、DML"></a>五、DML</h1><ol>
-<li>表的创建；</li>
-<li>向表中插入数据；</li>
-<li>一次插入多行数据；</li>
-<li>表的复制；</li>
-<li>将查询结果插入到另一张表中；</li>
-<li>修改表中数据，将部门10loc修改为shnghai，部门名称dname为res；</li>
-<li>删除数据</li>
+<li><p>表的创建；</p>
+<blockquote>
+<p>create table emp(ename char(8),deptno int);</p>
+</blockquote>
+</li>
+<li><p>向表中插入数据；</p>
+<blockquote>
+<p>insert into emp (ename, deptno) values (‘cindy’, 110);</p>
+</blockquote>
+</li>
+<li><p>一次插入多行数据；</p>
+<blockquote>
+<p>insert into emp (ename, deptno) values (‘cindy’,110),(‘andy’,120);</p>
+</blockquote>
+</li>
+<li><p>表的复制；</p>
+<blockquote>
+<p>create table emp1 as select * from dept;</p>
+</blockquote>
+</li>
+<li><p>将查询结果插入到另一张表中；</p>
+<blockquote>
+<p>insert into dept1 select * from dept;</p>
+</blockquote>
+</li>
+<li><p>修改表中数据，将部门10loc修改为shnghai，部门名称dname为res；</p>
+<blockquote>
+<p>update dept set loc &#x3D; ‘shanghai’, dname &#x3D; ‘res’ where deptno &#x3D; 10;</p>
+</blockquote>
+</li>
+<li><p>删除数据</p>
+<blockquote>
+<p>delete from dept where deptno &#x3D; 10;</p>
+</blockquote>
+</li>
 </ol>
 <p><strong>注：</strong><br><strong>1. 关于单引号和双引号</strong><br>在标准 SQL 中，字符串使用的是单引号。<br>如果字符串本身也包括单引号，则使用两个单引号（注意，不是双引号，字符串中的双引号不需要另外转义）。<br>但在其它的数据库中可能存在对 SQL 的扩展，比如在 MySQL 中允许使用单引号和双引号两种。<br><strong>2. 关于大小写</strong><br>在Windows中sql大小写不敏感，但是对于某字段的值是大小写敏感的。</p>
 
@@ -454,6 +533,7 @@
 </body>
 
 <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+
 
 
 
