@@ -44,7 +44,7 @@
 <h3 id="②-github和本地绑定"><a href="#②-github和本地绑定" class="headerlink" title="② github和本地绑定"></a>② github和本地绑定</h3><ul>
 <li>打开github，在设置中的SSH and GPG keys中new SSH key，粘贴id_rsa.pub中的内容。<br><img src="/img/deploy/sshStep1.png"><br><img src="/img/deploy/sshStep2.png"><br><img src="/img/deploy/sshStep3.png"></li>
 </ul>
-<h3 id="③-检查ssh是否绑定成功"><a href="#③-检查ssh是否绑定成功" class="headerlink" title="③ 检查ssh是否绑定成功"></a>③ 检查ssh是否绑定成功</h3><p>在git bash中&gt;&gt;ssh -T <a href="mailto:&#103;&#105;&#x74;&#x40;&#103;&#105;&#x74;&#x68;&#117;&#98;&#46;&#99;&#x6f;&#109;">&#103;&#105;&#x74;&#x40;&#103;&#105;&#x74;&#x68;&#117;&#98;&#46;&#99;&#x6f;&#109;</a>&gt;&gt;敲一次回车&gt;&gt;输入yes&gt;&gt;出现warming没关系，出现you’ve successfully…<strong>即为成功</strong></p>
+<h3 id="③-检查ssh是否绑定成功"><a href="#③-检查ssh是否绑定成功" class="headerlink" title="③ 检查ssh是否绑定成功"></a>③ 检查ssh是否绑定成功</h3><p>在git bash中&gt;&gt;ssh -T <a href="mailto:&#x67;&#105;&#x74;&#x40;&#x67;&#105;&#116;&#x68;&#117;&#98;&#x2e;&#x63;&#x6f;&#109;">&#x67;&#105;&#x74;&#x40;&#x67;&#105;&#116;&#x68;&#117;&#98;&#x2e;&#x63;&#x6f;&#109;</a>&gt;&gt;敲一次回车&gt;&gt;输入yes&gt;&gt;出现warming没关系，出现you’ve successfully…<strong>即为成功</strong></p>
 <h1 id="三、本地生成博客内容"><a href="#三、本地生成博客内容" class="headerlink" title="三、本地生成博客内容"></a>三、本地生成博客内容</h1><ul>
 <li>在本地文件中新建空的文件夹blog，右键打开Git bash here</li>
 <li><strong>hexo init</strong>&gt;&gt;初始化hexo，INFO start blogging with hexo，在文件夹中会产生很多文件，是来自github上别人已经做好的，拷贝下来的</li>
@@ -65,7 +65,7 @@
 <h1 id="四、安装自动部署发布工具"><a href="#四、安装自动部署发布工具" class="headerlink" title="四、安装自动部署发布工具"></a>四、安装自动部署发布工具</h1><ol>
 <li>在blog文件中打开git bash here，输入&gt;&gt;npm install hexo-deployer-git -save</li>
 <li><strong>hexo g</strong>&gt;&gt;生成页面</li>
-<li><strong>hexo d</strong>&gt;&gt;上传，执行完成后本地文件会上传少github中。这一步需要验证账号密码，username输入github账户，密码改为令牌，令牌来自setting&gt;&gt;developer seeting&gt;personal access token。令牌复制一次后就会隐藏，需要自行保存。输错内容需要从头再来。<br><img src="/img/deploy/token.png"></li>
+<li><strong>hexo d</strong>&gt;&gt;上传，执行完成后本地文件会上传到github中。这一步需要验证账号密码，username输入github账户，密码改为令牌，令牌来自setting&gt;&gt;developer seeting&gt;personal access token。令牌复制一次后就会隐藏，需要自行保存。输错内容需要从头再来。<br><img src="/img/deploy/token.png"></li>
 </ol>
 <h1 id="五、访问"><a href="#五、访问" class="headerlink" title="五、访问"></a>五、访问</h1><p>可以在repository&gt;&gt;setting&gt;&gt;pages&gt;&gt;source为main查看部署成功后的链接。<br><a href="https://zyy2022.github.io/">https://zyy2022.github.io/</a></p>
 <blockquote>
